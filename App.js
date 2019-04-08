@@ -48,7 +48,7 @@ class App extends React.Component {
                     joinedRooms: this.currentUser.rooms
                 })
             })
-            .catch(err => console.log('error on joinableRooms', err))
+            .catch(err => console.log('error on joinableRooms: ', err))
     }
 
     subscribeToRoom(roomId) {
@@ -84,7 +84,7 @@ class App extends React.Component {
             <div className="app">
                 <RoomList 
                     subscribeToRoom={this.subscribeToRoom}
-                    rooms={[...this.state.joinableRooms, ....this.state.joinedRooms]}/>
+                    rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}/>
                 <MessageList messages={this.state.messages} />
                 <SendMessageForm sendMessage={this.sendMessage} />
                 <NewRoomForm />
