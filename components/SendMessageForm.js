@@ -19,7 +19,7 @@ class SendMessageForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault()
-		this.props.sendMessage(thuis.state.message)
+		this.props.sendMessage(this.state.message)
 		// Inverse Data Flow from App.js
 		this.setState({
 			message: ''
@@ -32,6 +32,7 @@ class SendMessageForm extends React.Component {
             	onSubmit={this.handleSubmit}
             	className="send-message-form">
                 <input
+                	disabled={this.props.disabled}
                 	onChange={this.handleChange}
                 	value={this.state.message}
                     placeholder="Type your message and hit ENTER"
